@@ -1,4 +1,4 @@
-name: Build and deploy Spring Boot app (JDK 25)
+name: Build and Deploy Spring Boot App (JDK 25)
 
 on:
   push:
@@ -25,9 +25,9 @@ jobs:
       - name: Build with Maven
         run: mvn clean package -DskipTests
 
-      - name: Deploy to Azure Web App
+      - name: Deploy to Azure App Service
         uses: azure/webapps-deploy@v3
         with:
-          app-name: demoazureapp
+          app-name: appdemo2
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: target/*.jar
